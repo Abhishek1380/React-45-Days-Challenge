@@ -1,0 +1,66 @@
+
+<!-- Problem Statement -->
+<!-- 1. Display Message Based on User's Login Status
+Write a React component that displays:
+
+"Welcome back, [username]" if the user is logged in.
+"Please log in" if the user is not logged in.
+Hint: Use a prop like isLoggedIn to determine the output. -->
+
+
+
+<!-- App.js -->
+
+import Sample from './Sample.jsx';
+
+export default function App(){
+    return(
+        <Sample isLoggedIn={true} username="Abhishek"/>
+        // To get opposite output use following
+        // <Sample isLoggedIn={false} />
+    )
+}
+
+<!-- Using Ternery Operator -->
+<!-- Sample.jsx -->
+
+import React from 'react';
+
+const Sample = ({isLoggedIn,username})=>{
+    return(
+        isLoggedIn ? <p>Welcome back,{username} </p>  :  <p>Kindly Log in </p> 
+    )
+}
+export default Sample;
+
+
+
+
+
+<!-- Using Logical && Operator -->
+<!-- Sample.jsx -->
+import React from 'react';
+
+const Sample = ({isLoggedIn,username})=>{
+    return(
+        <>
+        {isLoggedIn && <p> Welcome back, {username} </p>}
+        {!isLoggedIn && <p> Kindly Login </p>}
+        </>
+    )
+}
+export default Sample;
+
+
+<!-- if-else conditionals -->
+<!-- Sample.jsx -->
+import React from 'react';
+
+const Sample = ({isLoggedIn,username})=>{
+   if(isLoggedIn){
+       return <h1>Welcome Back, {username}</h1>
+   }else{
+       return <h1>Kindly login</h1>
+   }
+}
+export default Sample;
